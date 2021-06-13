@@ -8,6 +8,18 @@
       ],
       "@store/*": [
         "src/store/*"
+      ],
+      "@modules/*": [
+        "src/modules/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@icons/*": [
+        "src/components/Icons/*"
       ]
     },
     "module": "commonjs",
@@ -22,7 +34,7 @@
       "esnext"
     ],
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": false,
     "noEmit": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,

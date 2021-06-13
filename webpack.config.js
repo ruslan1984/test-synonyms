@@ -13,6 +13,10 @@ module.exports = {
     alias: {
       "@": path.resolve(__dirname, "src/"),
       "@store": path.resolve(__dirname, "src/store"),
+      "@modules": path.resolve(__dirname, "src/modules"),
+      "@assets": path.resolve(__dirname, "src/assets"),
+      "@components": path.resolve(__dirname, "src/components"),
+      "@icons": path.resolve(__dirname, "src/components/Icons"),
     },
   },
   output: {
@@ -32,6 +36,17 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use: ["url-loader"],
+      },
+      {
+        test: /\.(woff|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        options: {
+          name: '/src/assets/fonts/[name].[ext]'
+        }
       },
       {
         enforce: "pre",

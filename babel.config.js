@@ -4,7 +4,6 @@ module.exports = {
     "@babel/preset-react",
     "@babel/preset-typescript",
     "@emotion/babel-preset-css-prop",
-    "next/babel",
   ],
   plugins: ["@babel/plugin-proposal-class-properties"],
   env: {
