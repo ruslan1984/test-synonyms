@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { reducer as testReducer } from "@modules/Test/reducer";
+import { reducer as synonymsReducer } from "@modules/Synonyms/reducer";
 
 export const reducer = combineReducers({
-  testReducer,
+  synonymsReducer,
 });
 
 export type reducerType = ReturnType<typeof reducer>;

@@ -1,8 +1,8 @@
 import React, { FC, FormEvent } from "react";
-import { ModeType } from "@modules/Test/types";
+import { ModeType } from "@modules/Synonyms/types";
 import { Button, Input } from "@components/index";
 import { BaseBlock, EditBlock, NameText, BtnBlocks } from "./styles";
-import { Form, Note } from "@modules/Test/styles";
+import { Form, Note } from "@modules/Synonyms/styles";
 import { EditBtn, DeleteBtn, CloseBtn } from "@icons/styles";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 

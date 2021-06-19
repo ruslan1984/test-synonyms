@@ -5,7 +5,7 @@ export type ItemType = {
 
 export type ModeType =  "base" | "edit";
 
-export type TestType = {
+export type SynonymsType = {
   list: ItemType[];
   mode: ModeType;
 }

@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import Test from "@modules/Test";
+import Synonyms from "@modules/Synonyms";
 
 const App: FC = () => {
-  return <Test />;
+  return <Synonyms />;
 };
 
 export default App;

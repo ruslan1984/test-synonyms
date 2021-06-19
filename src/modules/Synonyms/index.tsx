@@ -2,15 +2,20 @@ import React, { FC, useState, FormEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Presenter from "./Presenter";
 import { reducerType } from "@store/reducers";
-import { actions } from "./reducer";
+import { actions, saveData, request } from "./reducer";
+import { useEffect } from "react";
 
 const Test: FC = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
-  const [saving, setSaving] = useState(false);
+  //const [saving, setSaving] = useState(false);
   const [errorText, setErrorText] = useState("");
-  const { list, mode } = useSelector((state: reducerType) => state.testReducer);
-
+  const { list, mode } = useSelector(
+    (state: reducerType) => state.synonymsReducer
+  );
+  useEffect(() => {
+    dispatch(request());
+  }, []);
   const add = (e: FormEvent) => {
     e.preventDefault();
     if (value?.trim() === "") {
@@ -25,12 +30,9 @@ const Test: FC = () => {
     dispatch(actions.clear());
   };
   const save = async () => {
-    setSaving(true);
-    setTimeout(() => {
-      setSaving(false);
-    }, 1000);
+    dispatch(saveData());
   };
-  const valueCange = (e: FormEvent) => {
+  const valueChange = (e: FormEvent) => {
     setErrorText("");
     const name = (e.target as HTMLInputElement).value;
     setValue(name);
@@ -44,9 +46,9 @@ const Test: FC = () => {
       clear={clear}
       save={save}
       value={value}
-      valueCange={valueCange}
+      valueChange={valueChange}
       errorText={errorText}
-      saving={saving}
+      saving={false}
     />
   );
 };

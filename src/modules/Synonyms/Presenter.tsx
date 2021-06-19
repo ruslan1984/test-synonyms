@@ -16,7 +16,7 @@ import {
   Footer,
   Body,
 } from "./styles";
-import { ModeType } from "@modules/Test/types";
+import { ModeType } from "@modules/Synonyms/types";
 import { CloseBtn, NoticeIcon } from "@icons/styles";
 
 interface PresenterInterface {
@@ -26,7 +26,7 @@ interface PresenterInterface {
   mode: ModeType;
   saving: boolean;
   add: (e: FormEvent) => void;
-  valueCange: (e: FormEvent) => void;
+  valueChange: (e: FormEvent) => void;
   clear: () => void;
   save: () => void;
 }
@@ -40,7 +40,7 @@ const Presenter: FC<PresenterInterface> = ({
   add,
   clear,
   save,
-  valueCange,
+  valueChange,
 }: PresenterInterface) => (
   <Page>
     <Modal>
@@ -60,7 +60,7 @@ const Presenter: FC<PresenterInterface> = ({
               <Input
                 value={value}
                 placeholder="Введите название"
-                onChange={valueCange}
+                onChange={valueChange}
                 errorText={errorText}
                 mb={5}
               />

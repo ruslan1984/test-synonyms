@@ -1,8 +1,8 @@
 import React, { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
-import { actions } from "@modules/Test/reducer";
+import { actions } from "@modules/Synonyms/reducer";
 import Presenter from "./Presenter";
-import { ModeType } from "@modules/Test/types";
+import { ModeType } from "@modules/Synonyms/types";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 
 interface ItemInterface {

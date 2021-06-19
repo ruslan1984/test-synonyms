@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TestType, ItemType, ModeType } from "./types";
+import { createSlice, PayloadAction, createAction } from "@reduxjs/toolkit";
+import { SynonymsType, ItemType, ModeType } from "./types";
 
-export const defaultState: TestType = {
+export const defaultState: SynonymsType = {
   list: [
     {
       id: 1,
@@ -26,6 +26,10 @@ export const testSlice = createSlice({
   name: "test",
   initialState: defaultState,
   reducers: {
+    setData: (state, { payload }: PayloadAction<ItemType[]>) => ({
+      ...state,
+      list: payload,
+    }),
     add: (state, { payload }: PayloadAction<string>) => {
       const list: ItemType[] = [...state.list];
       const maxId: number = list.reduce(
@@ -58,4 +62,7 @@ export const testSlice = createSlice({
     },
   },
 });
+
+export const saveData = createAction("saveData");
+export const request = createAction("request");
 export const { actions, reducer } = testSlice;
