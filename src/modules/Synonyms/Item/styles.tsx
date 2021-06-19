@@ -5,18 +5,19 @@ const Block = styled.div`
   width: 100%;
   box-sizing: border-box;
   align-items: start;
-  margin: 4px 0;
+  margin: 5px 0;
   border-radius: 3px;
   align-items: center;
 `;
 
 export const BaseBlock = styled(Block)`
   background: white;
-  padding: 8px 10px 7px;
+  padding: 10px 14px 7px 11px;
 `;
 
 export const EditBlock = styled(Block)`
   flex-direction: column;
+  margin-bottom: 12px;
 `;
 
 export const NameText = styled.div`
@@ -24,7 +25,7 @@ export const NameText = styled.div`
   flex: 1;
   color: #344273;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
 `;
 
 export const BtnBlocks = styled.div`

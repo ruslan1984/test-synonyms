@@ -50,8 +50,8 @@ const Button = styled.button`
   background: var(--background);
   border: 2px solid var(--background);
   margin-right: 5px;
-  font-size: 10.8px;
-  padding: 5px 9px;
+  font-size: 12px;
+  padding: 6px 9px;
   border-radius: 3px;
   font-weight: 700;
   letter-spacing: 0.4;

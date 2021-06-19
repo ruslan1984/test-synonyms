@@ -2,24 +2,7 @@ import { createSlice, PayloadAction, createAction } from "@reduxjs/toolkit";
 import { SynonymsType, ItemType, ModeType } from "./types";
 
 export const defaultState: SynonymsType = {
-  list: [
-    {
-      id: 1,
-      name: "Процент",
-    },
-    {
-      id: 2,
-      name: "Золотая",
-    },
-    {
-      id: 3,
-      name: "Премиум",
-    },
-    {
-      id: 4,
-      name: "Кредит",
-    },
-  ],
+  list: [],
   mode: "base",
   saving: false,
 };
@@ -54,6 +37,23 @@ export const testSlice = createSlice({
         item.id === payload.id ? { id: item.id, name: payload.name } : item
       );
       return { ...state, list };
+    },
+    setItemEditMode: (state, { payload: id }: PayloadAction<number>) => {
+      const currentList = [...state.list];
+      const list: ItemType[] = currentList.map((item) =>
+        item.id === id
+          ? { ...item, itemMode: "edit" }
+          : { ...item, itemMode: "base" }
+      );
+      return { ...state, list, mode: "edit" };
+    },
+    setItemBaseMode: (state, { payload: id }: PayloadAction<number>) => {
+      const currentList = [...state.list];
+      const list: ItemType[] =
+        currentList.map((item) =>
+          item.id === id ? { ...item, itemMode: "base" } : item
+        ) || [];
+      return { ...state, list, mode: "base" };
     },
     clear: (state) => {
       return { ...state, list: [] };

@@ -18,8 +18,8 @@ const Icon = styled.div`
 `;
 
 export const EditBtn = styled(Icon)`
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   opacity: 0.5;
   transition: 0.5s;
   cursor: pointer;
@@ -31,8 +31,8 @@ export const EditBtn = styled(Icon)`
 `;
 
 export const DeleteBtn = styled(Icon)`
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   opacity: 0.5;
   transition: 0.5s;
   cursor: pointer;
@@ -43,15 +43,15 @@ export const DeleteBtn = styled(Icon)`
 `;
 
 export const NoticeIcon = styled(Icon)`
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   background-image: url(${nodiceIcon});
 `;
 
 export const CloseBtn = styled(Icon)`
   opacity: 1;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   cursor: pointer;
   background-image: url(${closeIcon});
   position: ${({ position }: IconPropsType) => position || "static"};

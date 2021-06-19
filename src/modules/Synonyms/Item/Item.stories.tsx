@@ -11,20 +11,22 @@ export const Test = () => {
     <>
       <Presenter
         name={"name"}
-        mode="base"
+        itemMode="base"
         remove={action("remove")}
         editMode={action("editMode")}
-        edit={action("edit")}
-        baseMode={action("baseMode")}
+        editClick={action("edit")}
+        changeValue={action("change")}
+        closeClick={action("closeClick")}
       />
       <br />
       <Presenter
         name={"name"}
-        mode="edit"
+        itemMode="edit"
         remove={action("remove")}
         editMode={action("editMode")}
         editClick={action("edit")}
-        baseMode={action("baseMode")}
+        changeValue={action("change")}
+        closeClick={action("closeClick")}
       />
     </>
   );

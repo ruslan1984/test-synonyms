@@ -8,21 +8,21 @@ import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 
 interface IPresenter {
   name: string;
-  mode: ModeType;
+  itemMode?: ModeType;
   remove: () => void;
   editMode: () => void;
   editClick: (e: FormEvent) => void;
-  baseMode: () => void;
+  closeClick: () => void;
   changeValue: (e: FormEvent) => void;
 }
 
 const Presenter: FC<IPresenter> = ({
   name,
-  mode,
+  itemMode,
   remove,
   editMode,
   editClick,
-  baseMode,
+  closeClick,
   changeValue,
 }: IPresenter): ReactJSXElement => {
   const BaseMode = () => (
@@ -37,18 +37,23 @@ const Presenter: FC<IPresenter> = ({
     <EditBlock>
       <Form action="" onSubmit={editClick}>
         <Note mb={2}>редактирование синонима:</Note>
-        <Input mb={4} defaultValue={name} onChange={changeValue} />
+        <Input
+          mb={4}
+          padding="5px 0 13px"
+          defaultValue={name}
+          onChange={changeValue}
+        />
         <BtnBlocks>
-          <Button mr={5} type="submit">
+          <Button mr={10} type="submit">
             cохранить
           </Button>
-          <CloseBtn onClick={baseMode} />
+          <CloseBtn onClick={closeClick} />
         </BtnBlocks>
       </Form>
     </EditBlock>
   );
 
-  switch (mode) {
+  switch (itemMode) {
     case "base": {
       return <BaseMode />;
     }

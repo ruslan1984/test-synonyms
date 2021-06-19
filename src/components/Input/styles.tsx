@@ -13,9 +13,10 @@ export const Input = styled.input`
   outline: none;
   transition: 0.5s;
   position: relative;
-  padding: 9px 0;
+  padding: ${({ padding }: { padding?: boolean }) => padding || "7px 0 11px"};
   width: 100%;
   background: none;
+  font-size: 15px;
   &::-webkit-input-placeholder {
     color: rgba(52, 66, 115, 0.5);
   }

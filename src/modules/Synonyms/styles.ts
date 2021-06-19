@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { ModeType } from "./types";
 
 export const BtnBlock = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ export const Page = styled.div`
 `;
 
 export const Modal = styled.div`
-  max-width: 510px;
+  max-width: 560px;
   width: 100%;
   background: #efefef;
   position: relative;
@@ -32,17 +33,17 @@ export const Title = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   padding-right: 20px;
-  font-size: 18px;
-  letter-spacing: 0.1;
+  font-size: 20px;
+  letter-spacing: 0;
   font-weight: 700;
 `;
 export const Title1 = styled.div`
-  font-size: 15px;
-  margin-bottom: 5px;
+  font-size: 16px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   span {
-    margin-right: 8px;
+    margin-right: 11px;
   }
 `;
 export const CloseBtnPosition = styled.div`
@@ -58,8 +59,13 @@ export const Form = styled.form`
 
 export const List = styled.div`
   overflow-y: auto;
-  height: 250px;
-  max-height: calc(100vh - 264px);
+  @media (max-width: 600px) {
+    max-height: calc(100vh - 282px);
+  }
+  @media (min-width: 601px) {
+    height: ${({ mode }: { mode?: ModeType }) =>
+      mode == "base" ? "278px" : "370px"};
+  }
 `;
 export const Hr = styled.hr`
   border: 1px solid #dedede;
@@ -68,9 +74,9 @@ export const Hr = styled.hr`
 `;
 
 export const Note = styled.div`
-  font-size: 12px;
+  font-size: 13px;
   color: #787878;
-  letter-spacing: 0.4;
+  letter-spacing: 0.5;
   color: #787878;
   margin-bottom: ${({ mb }: { mb?: string | number }) => mb || 0};
 `;
@@ -95,6 +101,6 @@ export const Footer = styled.footer`
 `;
 
 export const Body = styled.div`
-  padding-top: 53px;
+  padding-top: 58px;
   padding-bottom: 56px;
 `;

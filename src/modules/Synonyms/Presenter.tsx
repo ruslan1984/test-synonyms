@@ -46,7 +46,7 @@ const Presenter: FC<PresenterInterface> = ({
     <Modal>
       <Header>
         <Title>Редактирование группы синонимов поисковых фраз</Title>
-        <CloseBtn position="absolute" r={17} t={20} />
+        <CloseBtn position="absolute" r={19} t={19} />
         <Hr mb={15} />
       </Header>
       <Body>
@@ -68,10 +68,15 @@ const Presenter: FC<PresenterInterface> = ({
             </Form>
           </>
         )}
-        <List>
+        <List mode={mode}>
           {list &&
             list.map((item) => (
-              <Item key={item.id} id={item.id} name={item.name} />
+              <Item
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                itemMode={item.itemMode}
+              />
             ))}
         </List>
       </Body>

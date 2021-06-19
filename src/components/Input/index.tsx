@@ -7,12 +7,18 @@ interface IInput {
   defaultValue?: string;
   value?: string;
   placeholder?: string;
+  padding?: string;
   onChange?: (e: FormEvent) => void;
   mb?: string | number;
   errorText?: string;
 }
 
-const Input = ({ errorText, mb, ...props }: IInput): ReactJSXElement => (
+const Input = ({
+  errorText,
+  mb,
+  padding,
+  ...props
+}: IInput): ReactJSXElement => (
   <InputBlock mb={mb}>
     <StyledInput {...props} />
     {errorText && <ErrorText>{errorText}</ErrorText>}

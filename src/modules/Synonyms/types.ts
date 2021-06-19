@@ -1,9 +1,11 @@
+export type ModeType =  "base" | "edit";
+
 export type ItemType = {
   id: number;
   name: string;
+  itemMode?: ModeType;
 }
 
-export type ModeType =  "base" | "edit";
 
 export type SynonymsType = {
   list: ItemType[];

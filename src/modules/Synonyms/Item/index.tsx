@@ -8,11 +8,11 @@ import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 interface ItemInterface {
   id: number;
   name: string;
+  itemMode?: ModeType;
 }
 
-const Item = ({ id, name }: ItemInterface): ReactJSXElement => {
+const Item = ({ id, name, itemMode }: ItemInterface): ReactJSXElement => {
   const dispatch = useDispatch();
-  const [mode, setMode] = useState<ModeType>("base");
   let currentValue = name;
   const remove = () => {
     dispatch(actions.remove(id));
@@ -22,28 +22,32 @@ const Item = ({ id, name }: ItemInterface): ReactJSXElement => {
     dispatch(actions.edit({ id, name: currentValue }));
     baseMode();
   };
+
   const changeValue = (e: FormEvent) => {
     const value: string = (e.currentTarget as HTMLInputElement).value;
     currentValue = value;
   };
+
   const editMode = () => {
-    setMode("edit");
-    dispatch(actions.setMode("edit"));
+    dispatch(actions.setItemEditMode(id));
+  };
+
+  const closeClick = () => {
+    dispatch(actions.setItemBaseMode(id));
   };
 
   const baseMode = () => {
-    setMode("base");
     dispatch(actions.setMode("base"));
   };
 
   return (
     <Presenter
       name={name}
-      mode={mode}
+      itemMode={itemMode}
       remove={remove}
       editMode={editMode}
       editClick={editClick}
-      baseMode={baseMode}
+      closeClick={closeClick}
       changeValue={changeValue}
     />
   );
