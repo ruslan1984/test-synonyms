@@ -81,7 +81,7 @@ const Presenter: FC<PresenterInterface> = ({
         </List>
       </Body>
       <Footer>
-        <Hr mb={17} />
+        <Hr mb={19} />
         <BtnBlock>
           <Button loading={saving ? 1 : 0} mr={18} save onClick={save}>
             сохранить изменения
