@@ -96,7 +96,7 @@ export const Footer = styled.footer`
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 0 20px 15px;
+  padding: 0 20px 17px;
   box-sizing: border-box;
 `;
 
