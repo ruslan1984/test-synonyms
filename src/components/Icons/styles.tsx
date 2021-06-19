@@ -4,10 +4,17 @@ import deleteIcon from "@assets/delete.svg";
 import closeIcon from "@assets/close.svg";
 import nodiceIcon from "@assets/notice.svg";
 
+type IconPropsType = {
+  position?: string;
+  mr?: string | number;
+  r?: string | number;
+  t?: string | number;
+};
+
 const Icon = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
-  margin-right: ${({ mr }: { mr?: string | number }) => mr || 0};
+  margin-right: ${({ mr }: IconPropsType) => mr || 0};
 `;
 
 export const EditBtn = styled(Icon)`
@@ -47,7 +54,7 @@ export const CloseBtn = styled(Icon)`
   height: 20px;
   cursor: pointer;
   background-image: url(${closeIcon});
-  position: ${({ position }: { position?: string }) => position || "static"};
-  right: ${({ r }: { r?: string | number }) => r || 0};
-  top: ${({ t }: { t?: string | number }) => t || 0};
+  position: ${({ position }: IconPropsType) => position || "static"};
+  right: ${({ r }: IconPropsType) => r || 0};
+  top: ${({ t }: IconPropsType) => t || 0};
 `;

@@ -8,14 +8,15 @@ import { useEffect } from "react";
 const Test: FC = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
-  //const [saving, setSaving] = useState(false);
   const [errorText, setErrorText] = useState("");
-  const { list, mode } = useSelector(
+  const { list, mode, saving } = useSelector(
     (state: reducerType) => state.synonymsReducer
   );
+
   useEffect(() => {
     dispatch(request());
   }, []);
+
   const add = (e: FormEvent) => {
     e.preventDefault();
     if (value?.trim() === "") {
@@ -29,9 +30,11 @@ const Test: FC = () => {
   const clear = () => {
     dispatch(actions.clear());
   };
+
   const save = async () => {
     dispatch(saveData());
   };
+
   const valueChange = (e: FormEvent) => {
     setErrorText("");
     const name = (e.target as HTMLInputElement).value;
@@ -48,7 +51,7 @@ const Test: FC = () => {
       value={value}
       valueChange={valueChange}
       errorText={errorText}
-      saving={false}
+      saving={saving}
     />
   );
 };

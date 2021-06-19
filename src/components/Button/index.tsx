@@ -1,6 +1,17 @@
 import styled from "@emotion/styled";
 import loadingImg from "@assets/loading.svg";
 
+type ButtonPropsType = {
+  disabled?: boolean | number;
+  loading?: boolean | number;
+  save?: boolean | number;
+  clear?: boolean | number;
+  mr?: string | number;
+  mb?: string | number;
+  mt?: string | number;
+  ml?: string | number;
+};
+
 const buttonLoading = `
   &:before {
     content: "";
@@ -33,7 +44,6 @@ const Button = styled.button`
   cursor: pointer;
   position: relative;
   z-index: 1;
-  transition: 0.3s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,16 +59,9 @@ const Button = styled.button`
   margin-right: ${({ mr }: { mr?: string | number }) => mr || 0};
   margin-top: ${({ mt }: { mt?: string | number }) => mt || 0};
   margin-left: ${({ ml }: { ml?: string | number }) => ml || 0};
-  ${(props: {
-    disabled?: boolean | number;
-    loading?: boolean | number;
-    save?: boolean | number;
-    clear?: boolean | number;
-    mr?: string | number;
-    mb?: string | number;
-    mt?: string | number;
-    ml?: string | number;
-  }) => {
+  transition: ${({ loading }: { loading?: boolean | number }) =>
+    loading ? "0" : "0.3s"};
+  ${(props: ButtonPropsType) => {
     if (props.disabled) {
       return "opacity: 0.5; color: white";
     }
@@ -66,7 +69,7 @@ const Button = styled.button`
       return buttonLoading;
     }
     if (!props.disabled) {
-      return "&:hover, &:focus {background: #fff;color: #344273;}";
+      return "&:hover, &:focus {background: #fff;color: #344273;} ";
     }
   }};
 `;

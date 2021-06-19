@@ -21,6 +21,7 @@ export const defaultState: SynonymsType = {
     },
   ],
   mode: "base",
+  saving: false,
 };
 export const testSlice = createSlice({
   name: "test",
@@ -59,6 +60,9 @@ export const testSlice = createSlice({
     },
     setMode: (state, { payload }: PayloadAction<ModeType>) => {
       return { ...state, mode: payload };
+    },
+    setSaving: (state, { payload }: PayloadAction<boolean>) => {
+      return { ...state, saving: payload };
     },
   },
 });
