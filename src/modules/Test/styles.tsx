@@ -90,7 +90,7 @@ export const Footer = styled.footer`
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 20px;
+  padding: 0 20px 20px;
   box-sizing: border-box;
 `;
 
