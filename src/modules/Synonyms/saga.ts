@@ -6,7 +6,7 @@ function* requestSaga() {
   try {
     const listStorage: string | null = localStorage.getItem("list");
     const list = listStorage && JSON.parse(listStorage);
-    yield put(actions.setData(list));
+    yield put(actions.setData(list || []));
   } catch (err) {
     console.error(err);
   }
