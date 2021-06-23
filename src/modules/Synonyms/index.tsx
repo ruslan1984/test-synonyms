@@ -9,7 +9,7 @@ const Test: FC = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
   const [errorText, setErrorText] = useState("");
-  const { list, mode, saving } = useSelector(
+  const { list, mode, saving, clearing } = useSelector(
     (state: reducerType) => state.synonymsReducer
   );
 
@@ -52,6 +52,7 @@ const Test: FC = () => {
       valueChange={valueChange}
       errorText={errorText}
       saving={saving}
+      clearing={clearing}
     />
   );
 };

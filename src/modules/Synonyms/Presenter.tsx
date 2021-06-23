@@ -25,6 +25,7 @@ interface PresenterInterface {
   list: ItemType[];
   mode: ModeType;
   saving: boolean;
+  saving: clearing;
   add: (e: FormEvent) => void;
   valueChange: (e: FormEvent) => void;
   clear: () => void;
@@ -37,6 +38,7 @@ const Presenter: FC<PresenterInterface> = ({
   errorText,
   mode,
   saving,
+  clearing,
   add,
   clear,
   save,
@@ -86,7 +88,7 @@ const Presenter: FC<PresenterInterface> = ({
           <Button loading={saving ? 1 : 0} mr={21} save onClick={save}>
             сохранить изменения
           </Button>
-          <Button clear onClick={clear}>
+          <Button loading={clearing ? 1 : 0} clear onClick={clear}>
             очистить синонимы
           </Button>
         </BtnBlock>

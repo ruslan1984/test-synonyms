@@ -11,4 +11,5 @@ export type SynonymsType = {
   list: ItemType[];
   mode: ModeType;
   saving: boolean;
+  clearing: boolean;
 }

@@ -1,4 +1,4 @@
-import { takeEvery, select, call, put, delay } from "redux-saga/effects";
+import { takeEvery, select, put, delay } from "redux-saga/effects";
 import { actions, saveData, request } from "./reducer";
 import { reducerType } from "@store/reducers";
 
@@ -26,7 +26,19 @@ function* saveDataSaga() {
   }
 }
 
+function* clearSaga() {
+  try {
+    yield put(actions.setClearing(true));
+    localStorage.removeItem("list");
+  } catch (err) {
+    console.error(err);
+  } finally {
+    yield put(actions.setClearing(false));
+  }
+}
+
 export function* synonymsSaga() {
   yield takeEvery(request, requestSaga);
   yield takeEvery(saveData, saveDataSaga);
+  yield takeEvery(actions.clear, clearSaga);
 }

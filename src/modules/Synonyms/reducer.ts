@@ -5,6 +5,7 @@ export const defaultState: SynonymsType = {
   list: [],
   mode: "base",
   saving: false,
+  clearing: false,
 };
 export const testSlice = createSlice({
   name: "test",
@@ -63,6 +64,9 @@ export const testSlice = createSlice({
     },
     setSaving: (state, { payload }: PayloadAction<boolean>) => {
       return { ...state, saving: payload };
+    },
+    setClearing: (state, { payload }: PayloadAction<boolean>) => {
+      return { ...state, clearing: payload };
     },
   },
 });
